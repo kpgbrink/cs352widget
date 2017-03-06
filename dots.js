@@ -75,7 +75,7 @@ dots.init = function () {
       // Listen for the deviceorientation event and handle the raw data
       window.addEventListener('deviceorientation', function(eventData) {
         // gamma is the left-to-right tilt in degrees, where right is positive
-      dots.tiltLR = Math.abs(eventData.gamma) / 50;
+        dots.tiltLR = Math.abs(eventData.gamma) * 50;
         dots.rotation = dots.tiltLR;
         dots.speed = dots.tiltLR;
         $('#speed').text(Math.abs(dots.tiltLR));
