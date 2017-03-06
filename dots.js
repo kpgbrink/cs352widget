@@ -43,18 +43,22 @@ dots.init = function () {
   // Slider speed
   dots.speed = 0;
   dots.freezeBool = false;
+    
   dots.sliderSpeed = function() {
     dots.rotation = sliderSpeedObj.val();
     dots.speed = dots.rotation/25;
     $('#speed').text(dots.rotation);
     //console.log(dots.speed);
-    const imgData = dots.cx.getImageData(0, 0, dots.canvas.width, dots.canvas.height);
         dots.cx.setTransform(1,0,0,1,360,270);
         dots.cx.rotate(dots.rotation*Math.PI/180);
-    createImageBitmap(imgData).then((img) => {
-        dots.erase();
-        dots.cx.drawImage(img,-dots.canvas.width/2, -dots.canvas.height/2, dots.canvas.width, dots.canvas.height);
-    });
+      
+    if (!dots.eraseBool) {
+    const imgData = dots.cx.getImageData(0, 0, dots.canvas.width, dots.canvas.height);
+        createImageBitmap(imgData).then((img) => {
+            dots.erase();
+            dots.cx.drawImage(img,-dots.canvas.width/2, -dots.canvas.height/2, dots.canvas.width, dots.canvas.height);
+        });
+    }
   }
   const sliderSpeedObj = $('#sliderSpeed').bind('change input', dots.sliderSpeed);
   sliderSpeedObj.trigger('change');
