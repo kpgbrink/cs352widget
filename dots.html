@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Artistic Dots</title>
+  <!--<link rel="icon" href="./ken.png"/> -->
+  <link rel="stylesheet" type="text/css" href="dots.css" />
+</head>
+<body>
+  <div id="mainWindow">
+    <h3 class="titleBar">Artistic Dots</h3>
+
+    <div id="controls">
+      <div id="sliderdiv">
+        <p id="slidertitle">Speed</p>
+        <input id="sliderSpeed" type="range" min="0" max="100" value="10" />
+	       <p id="speedCount">Speed: <span id="speed"/> </p>
+	       <p id="timecountpar">Time: <span id="timecount">0</span></p>
+      </div>
+      <input id="checkBoxCoolDraw" type="checkbox" >Cool Draw</checkbox> <br/>
+    </div>
+
+    <canvas id="canvas1" width="720" height="540">
+      <p>Your browser doesn't support the HTML5 canvas element.</p>
+    </canvas>
+  </div>
+
+  <div id="messageWindow">
+    <h3 class="titleBar">Messages</h3>
+    <div id="messages"></div>
+  </div>
+    
+  <div style="display:none;">
+  </div>
+
+  <!-- javascript, loaded at the end to make the page appear faster -->
+  <script type="text/javascript" src="https://cs.calvin.edu/curriculum/cs/352/files/js/jquery-1.4.4.min.js"></script>
+  <script type="text/javascript" src="https://cs.calvin.edu/curriculum/cs/352/files/js/sylvester.js"></script>
+  <script type="text/javascript" src="dots.js"></script>
+</body>
+</html>
