@@ -77,7 +77,7 @@ dots.init = function () {
         // gamma is the left-to-right tilt in degrees, where right is positive
         dots.tiltLR = Math.abs(eventData.gamma);
         dots.rotation = dots.tiltLR;
-        dots.speed = dots.tiltLR;
+        dots.speed = dots.tiltLR/50;
         $('#speed').text(Math.abs(dots.tiltLR));
         //console.log(dots.speed);
         const imgData = dots.cx.getImageData(0, 0, dots.canvas.width, dots.canvas.height);
