@@ -75,10 +75,10 @@ dots.init = function () {
       // Listen for the deviceorientation event and handle the raw data
       window.addEventListener('deviceorientation', function(eventData) {
         // gamma is the left-to-right tilt in degrees, where right is positive
-      dots.tiltLR = eventData.gamma;
+      dots.tiltLR = Math.abs(eventData.gamma) / 50;
         dots.rotation = dots.tiltLR;
         dots.speed = dots.tiltLR;
-        $('#speed').text(dots.tiltLR);
+        $('#speed').text(Math.abs(dots.tiltLR));
         //console.log(dots.speed);
         const imgData = dots.cx.getImageData(0, 0, dots.canvas.width, dots.canvas.height);
         dots.cx.setTransform(1,0,0,1,360,270);
